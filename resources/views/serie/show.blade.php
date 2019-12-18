@@ -8,7 +8,7 @@
 <html>
     <body>
         <div>
-            <img src="{{$serie->urlImage}}">
+            <img src="http://172.31.146.100/~dut19_groupe16{{$serie->urlImage}}">
 
         </div>
 
