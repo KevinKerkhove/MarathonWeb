@@ -7,6 +7,7 @@ use App\Serie;
 @section('content')
 
     @if(!empty($series4))
+        pipi
         @foreach($series4 as $serie4)
             <img src="{{$serie4->urlImage}}"><p></br>{{$serie4->nom}}</br>{!!$serie4->resume!!}</p></br>
         @endforeach
