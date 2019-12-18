@@ -50,13 +50,30 @@
             @endforeach
         </div>
 
+        @if(!$isAdmin)
+            <div>
+                @foreach($commentaires as $commentaire)
+                    @if(($commentaire->validated)==true)
+                        <p><strong>Commentaires: </strong></p>
+                        <p>Utilisateur: {{$commentaire->id}}</p>
+                        <p>{{$commentaire->content}}</p>
+                    @endif
+                @endforeach
+            </div>
+        @else
+            <div>
+                @foreach($commentaires as $commentaire)
+                    <p><strong>Commentaires: </strong></p>
+                    <p>Utilisateur: {{$commentaire->id}}</p>
+                    <p>{{$commentaire->content}}</p>
+                @endforeach
+            </div>
+        @endif
 
-        <div>
-            <p><strong>Commentaires: </strong></p>
-            @foreach($commentaires as $commentaire)
-                <p><strong>Utilisateur: </strong>{{$commentaire->id}}</p>
-                <p>{{$commentaire->content}}</p>
-            @endforeach
+
+
+        <div style="text-align:center;">
+            <h4><a href="{{route('comment.create',$serie->id)}}" method="POST">Ajouter un commentaire</a></h4>
         </div>
 
     </body>
