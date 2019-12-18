@@ -7,14 +7,15 @@ use App\Serie;
 @section('content')
 
     @if(!empty($series4))
-        pipi
         @foreach($series4 as $serie4)
-            <img src="{{$serie4->urlImage}}"><p></br>{{$serie4->nom}}</br>{!!$serie4->resume!!}</p></br>
+            <a href="{{route('serie.show',$serie4->id)}}"><img src="{{$serie4->urlImage}}"></a>
+            <p></br>{{$serie4->nom}}</br>{!!$serie4->resume!!}</p></br>
         @endforeach
         @foreach($genres as $genre)
             <div>{{$genre['nom']}}</div>
             @foreach($genre->series as $s)
-                <img src="{{$s->urlImage}}"><p></br>{{$s->nom}}</br>{!!$s->resume!!}</p></br>
+                <a href="{{route('serie.show',$s->id)}}"><img src="{{$s->urlImage}}"></a>
+                    <p></br>{{$s->nom}}</br>{!!$s->resume!!}</p></br>
             @endforeach
         @endforeach
     @else
