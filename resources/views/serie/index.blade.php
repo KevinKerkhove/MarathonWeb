@@ -11,7 +11,7 @@
     @if(!empty($series))
         @foreach($series as $serie)
             <div>
-                <a href="{{route('serie.show',$serie->id)}}"><img src="{{$serie->urlImage}}"></a>
+                <a href="http://172.31.146.100/~dut19_groupe16/{{route('serie.show',$serie->id)}}"><img src="{{$serie->urlImage}}"></a>
                 <p>{{$serie->nom}}</p>
             </div>
 
