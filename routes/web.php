@@ -21,7 +21,9 @@ Auth::routes();
 Route::get('/', 'MainController@index')->name('home');
 Route::get('/series','SerieController@index')->name('serie.index');
 
+
 Route::resource('serie','SerieController');
+Route::resource('episode','EpisodeController');
 
 
 
