@@ -4,7 +4,7 @@
     @if(!empty($series))
         @foreach($series as $serie)
             <div>
-                <a href="{{route('serie.show',$serie->nom)}}"><img src="{{$serie->urlImage}}"></a>
+                <a href="{{route('serie.show',$serie->id)}}"><img src="{{$serie->urlImage}}"></a>
                 <p>{{$serie->nom}}</p>
             </div>
 

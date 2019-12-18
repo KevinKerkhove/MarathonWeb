@@ -18,15 +18,14 @@ class SerieController extends Controller{
 
     }
 
-
-
-    public function show(Request $request,$nom){
+    public function show(Request $request,$id){
         $action = $request->query('action', 'show');
-        $series=Serie::find($nom);
-        return view('serie.show',['series'=>$series,'action'=>$action]);
+        $serie=Serie::find($id);
+        $genres=$serie->genres;
+        $commentaires=$serie->comments;
+        $episodes=$serie->episodes;
+        return view('serie.show',['serie'=>$serie,'action'=>$action,'episodes'=>$episodes,'commentaires'=>$commentaires,'genres'=>$genres]);
     }
-
-
 }
 
 

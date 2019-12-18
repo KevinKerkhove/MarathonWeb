@@ -1,39 +1,55 @@
 <html>
     <body>
         <div>
-            <img src="{{$series->urlImage}}">
+            <img src="{{$serie->urlImage}}">
 
         </div>
 
         <div>
-            <p>{{$series->nom}}</p>
+            <p>{{$serie->nom}}</p>
         </div>
 
 
         <div>
-            <p><strong>Resume:</strong>{{$series->resume}}</p>
+            <p><strong>Resume:</strong>{!!$serie->resume!!}</p>
         </div>
 
         <div>
-            <p><strong>Langue:</strong>{{$series->langue}}</p>
-        </div>
-
-
-        <div>
-            <p><strong>Note:</strong>{{$series->note}}</p>
+            <p><strong>Langue:</strong>{{$serie->langue}}</p>
         </div>
 
 
         <div>
-            <p><strong>Statut:</strong>{{$series->statut}}</p>
+            <p><strong>Note:</strong>{{$serie->note}}</p>
+        </div>
+
+
+        <div>
+            <p><strong>Statut:</strong>{{$serie->statut}}</p>
         </div>
 
         <div>
-            <p><strong>Date de sortie:</strong>{{$series->premiere}}</p>
+            <p><strong>Date de sortie:</strong>{{$serie->premiere}}</p>
         </div>
 
         <div>
             <p><strong>Avis:</strong>{{$serie->avis}}</p>
+        </div>
+
+        <div>
+            <p><strong>Genres: </strong></p>
+            @foreach($genres as $genre)
+                <p>{{$genre->nom}}</p>
+            @endforeach
+        </div>
+
+
+        <div>
+            <p><strong>Commentaires: </strong></p>
+            @foreach($commentaires as $commentaire)
+                <p><strong>Utilisateur: </strong>{{$commentaire->id}}</p>
+                <p>{{$commentaire->content}}</p>
+            @endforeach
         </div>
 
     </body>
