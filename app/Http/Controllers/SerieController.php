@@ -7,7 +7,9 @@ use App\Serie;
 use App\Comment;
 use App\Genre;
 use App\Episode;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SerieController extends Controller{
 
@@ -24,7 +26,18 @@ class SerieController extends Controller{
         $genres=$serie->genres;
         $commentaires=$serie->comments;
         $episodes=$serie->episodes;
-        return view('serie.show',['serie'=>$serie,'action'=>$action,'episodes'=>$episodes,'commentaires'=>$commentaires,'genres'=>$genres]);
+
+        $isAdmin=false;
+        $utilisateur = Auth::user();
+        if($utilisateur!=null) {
+            $u=$utilisateur->id;
+            $uId=User::find($u);
+            if($uId->administrateur==1){
+                $isAdmin=true;
+            }
+        }
+
+        return view('serie.show',['serie'=>$serie,'action'=>$action,'episodes'=>$episodes,'commentaires'=>$commentaires,'genres'=>$genres,'isAdmin'=>$isAdmin]);
     }
 }
 

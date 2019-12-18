@@ -18,11 +18,12 @@ use App\Serie;
 
 Auth::routes();
 
-Route::get('/', 'MainController@index')->name('home');
-Route::get('/series','SerieController@index')->name('serie.index');
-
 Route::resource('serie','SerieController');
 
+Route::resource('comment', 'CommentController');
 
+Route::get('/', 'MainController@index')->name('home');
 
+Route::get('/series','SerieController@index')->name('serie.index');
 
+Route::get('/comment/create/', 'CommentController@create')->name('comment.create');
