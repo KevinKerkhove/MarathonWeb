@@ -1,3 +1,10 @@
+@extends('layouts.app')
+
+@section('content')
+
+
+
+
 <html>
 <h1> les séries</h1>
     <body>
@@ -15,3 +22,4 @@
     @endif
     </body>
     </html>
+@endsection
