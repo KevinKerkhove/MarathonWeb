@@ -50,6 +50,21 @@
             @endforeach
         </div>
 
+
+        <div>
+           @foreach($saisons as $saison)
+                <button>Saison {{$saison->saison}}</button>
+                @foreach($episodes as $episode)
+                    @if($saison->saison==$episode->saison)
+                        <li >
+                        <a href="{{route('episode.show',$episode->id)}}">Episode {{$episode->numero}} {{$episode->nom}}</a>
+                        </li>
+                    @endif
+                @endforeach
+            @endforeach
+
+        </div>
+
         @if(!$isAdmin)
             <div>
                 @foreach($commentaires as $commentaire)
