@@ -8,7 +8,7 @@ use App\Serie;
 
     @if(!empty($series4))
         @foreach($series4 as $serie4)
-            <a href="{{route('serie.show',$serie4->id)}}"><img src="{{$serie4->urlImage}}"></a>
+            <a href="{{route('serie.show',$serie4->id)}}"><img src="http://172.31.146.100/~dut19_groupe16{{$serie4->urlImage}}"></a>
             <p></br>{{$serie4->nom}}</br>{!!$serie4->resume!!}</p></br>
         @endforeach
         @foreach($genres as $genre)
