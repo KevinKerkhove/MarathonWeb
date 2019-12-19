@@ -100,6 +100,7 @@ html{
     color: white;
     padding-bottom: 2px;
     padding-left: 10px;
+    font-size: 15px;
 }
 #hr1{
     position: absolute;
@@ -200,6 +201,33 @@ html{
 #comu{
     width:20%;
     height: auto;
+}
+#container_comment{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user_comment{
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.text_comment{
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.comment{
+    width: 90%;
+    margin-bottom: 2vh;
+    display: flex;
+    flex-direction: column;
 }
 .titre_comu{
     padding: 7vh 0;
@@ -483,3 +511,4 @@ html{
     text-transform: uppercase;
     color: white;
 }
+

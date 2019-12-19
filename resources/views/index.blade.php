@@ -62,11 +62,14 @@ use App\Serie;
                     <div class="titre_comu">
                         <span>Communauté</span>
                     </div>
+                    <div id="container_comment">
                     @foreach($fiveComments as $fiveComment)
-                        <div class="item_division">
-                            <span>{{$fiveComment->content}}</span>
+                        <div class="comment">
+                            <span class="user_comment">Message de : Jean Louis</span>
+                            <span class="text_comment">{{$fiveComment->content}}</span>
                         </div>
                     @endforeach
+                    </div>
                 </div>
             @else
                 <h3>Aucune série</h3>
