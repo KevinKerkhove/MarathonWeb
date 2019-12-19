@@ -6,7 +6,6 @@ use App\Serie;
 @extends('layouts.app')
 
 @section('content')
-<<<<<<< HEAD
     <div id="first_page">
         <div id="container_hr">
             <div id="container_scroll">
@@ -17,7 +16,6 @@ use App\Serie;
             <hr id="hr2">
             <hr id="hr3">
             <hr id="hr4">
-=======
 <div id="first_page">
 
     <div id="container_hr">
@@ -29,7 +27,6 @@ use App\Serie;
         <div id="container_scroll">
             <hr id="hrscroll">
             <span id="txt_scroll">scroll down</span>
->>>>>>> e73460ecf7b2d2752fd07798cc8d5e8f86430fc0
         </div>
     </div>
 
@@ -51,20 +48,6 @@ use App\Serie;
                             @endforeach
                         </div>
                     </div>
-<<<<<<< HEAD
-                    <div>
-                        <div class="titre_division">
-                            <span>Les séries les blablabla</span>
-                        </div>
-                        <div class="content_division">
-                            @foreach($series4Here as $serie4Here)
-                                <div class="item_division">
-                                    <a href="{{route('serie.show',$serie4Here->id)}}"><img src="{{url($serie4Here->urlImage)}}"></a>
-                                    <span>{{$serie4Here->nom}}</span>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
                 </div>
                 <div id="comu">
                     @foreach($fiveComments as $fiveComment)
@@ -78,7 +61,6 @@ use App\Serie;
                 <h3>Aucune série</h3>
             @endif
         </div>
-=======
                     <div class="content_division">
                         @foreach($series4View as $serie4View)
                             <div class="item_division">
@@ -113,9 +95,5 @@ use App\Serie;
                     </div>
                 @endforeach
             </div>
-        @else
-            <h3>Aucune série</h3>
-        @endif
->>>>>>> e73460ecf7b2d2752fd07798cc8d5e8f86430fc0
     </div>
 @endsection
