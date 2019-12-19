@@ -3,150 +3,136 @@
 @section('content')
 
 
-        <div>
-            <img src="{{url($serie->urlImage)}}">
-        </div>
-
-        <div>
-            <p>{{$serie->nom}}</p>
-        </div>
 
 
-        <div>
-            <p><strong>Resume:</strong>{!!$serie->resume!!}</p>
-        </div>
+    <html>
+    <head>
+        <title>Choix série</title>
+        <link rel="stylesheet" href="/style/style.css">
+    </head>
+    <body>
 
-        <div>
-            <p><strong>Langue:</strong>{{$serie->langue}}</p>
-        </div>
-
-
-        <div>
-            <p><strong>Note:</strong>{{$serie->note}}</p>
-        </div>
+    <div class="container serie_show">
+        <div class="serie_top_infos">
+            <img src="http://172.31.146.100/~dut19_groupe16{{$serie->urlImage}}" class="serie_img_affiche">
 
 
-        <div>
-            <p><strong>Statut:</strong>{{$serie->statut}}</p>
-        </div>
+            <div class="serie_infos_name">
+                <div class="serie_top_genre">
+                    <div class="carre_rose_genre"></div>
+                    <p class="noms_genre">Genres:</p>
 
-        <div>
-            <p><strong>Date de sortie:</strong>{{$serie->premiere}}</p>
-        </div>
-
-        <div>
-            <p><strong>Avis:</strong>{{$serie->avis}}</p>
-        </div>
-
-        <div>
-            <p><strong>Genres: </strong></p>
-            @foreach($genres as $genre)
-                <p>{{$genre->nom}}</p>
-            @endforeach
-        </div>
-
-
-        <!--Les saisons et épisode-->
-
-
-        <div id="Liste-Saison">
-            @foreach($saisons as $saison)
-                <button onclick="opena(event, 'Saison {{$saison}}')">Saison {{$saison->saison}}</button>
-            @endforeach
-        </div>
-        <div id="saison">
-            @foreach($saisons as $saison)
-                <div id="saison{{$saison}}" class="initFerme">
-                    @foreach($episodes as $episode)
-                        @if($episode->saison == $saison->saison)
-                            <div>
-                                <p>
-                                    @if($episode->urlImage)
-                                        <img src="{{url($episode->urlImage)}}">
-                                    @endif
-                                    <p>Episode {{$episode->numero}}: {{$episode->nom}}</p>
-                                </p>
-                            </div>
-                        @endif
+                    @foreach($genres as $genre)
+                        <p>{{$genre->nom}}</p>
                     @endforeach
                 </div>
-            @endforeach
+                <div class="serie_top_infos_name">
+                    <div class="carre_rose"></div>
+                    <span class="serie_nom_serie">{{$serie->nom}}</span>
+                    <div class="serie_checkbox">
+                        <span>Vu</span>
+
+                        <label class="serie_btn_vue" for="checkbox_seen" aria-describedby="label"></label>
+                        <input type="checkbox" id="checkbox_seen">
+
+                    </div>
+
+
+                </div>
+
+    <div class="playerYoutube"></div>
+
+</div>
+
+</div>
+
+<div class="serie_mid_infos">
+<div class="serie_mid_infos_synopsis">
+    <div class="serie_mid_infos_name">
+        <div class="carre_rose_mid"></div>
+        <span class="serie_synopsis_titre">Synopsis</span>
+    </div>
+
+    <div class="serie_mid_notes">
+        <p class="note"><span>Note de la communauté: </span>{{$serie->note}}</p> <!-- ICI IL FAUT METTRE LA VARIABLE DE LA MOYENNE DES NOTES DES COMMENTAIRES-->
+        <p class="note"><span>Note de la rédaction: </span>{{$serie->note}}</p> <!-- ICI IL FAUT METTRE LA VARIABLE DE LA MOYENNE DES NOTES DES COMMENTAIRES-->
+    </div>
+
+    <span class="serie_synopsis_text">{!!$serie->resume!!}</span>
+</div>
+
+@if(!empty($serie->avis))
+
+    <div class="serie_mid_infos_avis">
+        <div class="serie_mid_infos_name">
+            <div class="carre_rose_mid"></div>
+            <span class="serie_synopsis_titre">Avis de la rédaction</span>
         </div>
 
-        <!--Les commentaires-->
-
-        @if(!$isAdmin)
-            <div>
-                @foreach($commentaires as $commentaire)
-                    @if(($commentaire->validated)==true)
-                        <p><strong>Commentaires: </strong></p>
-                        <p>Utilisateur: {{$name}}</p>
-                        <p>{{$commentaire->content}}</p>
-                        <p>Note : {{$commentaire->note}}</p>
-                        <p>Date de mise en ligne : {{$commentaire->created_at}}</p>
-                        <p>{{$commentaire->validated}}</p>
-                        <div style="text-align:center;">
-                            <form action="{{route('comment.update',$commentaire->id)}}" method="POST">
-                                @csrf
-                                @method('PUT')
-                                @if($commentaire->validated==0)
-                                    <div>
-                                        <button class="btn btn-success" type="submit" href="{{URL::route('serie.index')}}">Valider le commentaire</button>
-                                    </div>
-                                @else
-                                    <div>
-                                        <button class="btn btn-success" type="submit" href="{{URL::route('serie.index')}}">Dévalider le commentaire</button>
-                                    </div>
-                                @endif
-                                <div>
-                                    <button class="btn btn-success" type="submit" href="{{URL::route('serie.index')}}">Supprimer le commentaire</button>
-                                </div>
-                            </form>
-                        </div>
-                    @endif
-                @endforeach
-            </div>
-        @else
-            <div>
-                @foreach($commentaires as $commentaire)
-                    <p><strong>Commentaires: </strong></p>
-                    <p>Utilisateur: {{$name}}</p>
-                    <p>{{$commentaire->content}}</p>
-                    <p>{{$commentaire->note}}</p>
-                    <p>Date de mise en ligne : {{$commentaire->created_at}}</p>
-                @endforeach
-            </div>
-        @endif
 
 
-        @if($utilisateur!=null)
-            <div style="text-align:center;">
-                <form action="{{route('comment.store')}}" method="POST">
-                    {!! csrf_field() !!}
-                    <input type="hidden" name="idSerie" value="{{$serie->id}}">
-                    <div class="text-center" style="margin-top: 2rem">
-                        <h3>Création d'un commentaire</h3>
-                        <hr class="mt-2 mb-2">
-                    </div>
-                    <div>
-                        <label for="content"><strong>Contenu :</strong></label>
-                        <input type="text" id="content" name="contenu"
-                               value="{{ old('content') }}">
-                    </div>
-                    <div>
-                        <label for="note"><strong>Note :</strong></label>
-                        <input type="float" id="note" name="note"
-                               value="{{ old('note') }}">
-                    </div>
-                    <div>
-                        <button class="btn btn-success" type="submit">Valide</button>
-                    </div>
-                </form>
-            </div>
-        @else
-            <span>Connectez-vous pour poster un commentaire.</span>
-        @endif
+        <span class="serie_synopsis_text">{{$serie->avis}}</span>
+    </div>
 
-    </body>
+@endif
+
+
+
+</div> <!-- FIN MID INFO-->
+
+<!-- Il faut mettre le choix des saisons..... -->
+<hr class="serie_info">
+<div class="serie_mid_infos_name">
+<div class="carre_rose_mid"></div>
+<span class="serie_synopsis_titre">Commentaires</span>
+</div>
+<div class="serie_form_commentaire">
+<textarea class="textarea_serie_commentaire" placeholder="Votre commentaire sur {{$serie->nom}}"></textarea>
+<div class="bottom_form_comment">
+    <div><label for="note_serie">Ajouter une note</label>
+     <input type="text" id="note_serie">
+    </div>
+    <div>
+        <input class="btn_envoi_form_commentaire" type="submit">
+    </div>
+</div>
+
+</div>
+
+
+
+
+
+@if(!$isAdmin)
+<div>
+@foreach($commentaires as $commentaire)
+    @if(($commentaire->validated)==true)
+        <p><strong>Commentaires: </strong></p>
+        <p>Utilisateur: {{$commentaire->id}}</p>
+        <p>{{$commentaire->content}}</p>
+    @endif
+@endforeach
+</div>
+@else
+<div>
+@foreach($commentaires as $commentaire)
+    <p><strong>Commentaires: </strong></p>
+    <p>Utilisateur: {{$commentaire->id}}</p>
+    <p>{{$commentaire->content}}</p>
+@endforeach
+</div>
+@endif
+
+
+
+
+
+
+
+</div>
+
+
+
+</body>
 </html>
 @endsection

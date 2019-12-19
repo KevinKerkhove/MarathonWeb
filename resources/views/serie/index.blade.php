@@ -4,7 +4,7 @@
 
 
 
-
+<div></div>
 <h1> les séries</h1>
 <div class="filtre">
     @if(!empty($series))
@@ -36,4 +36,6 @@
         <h3>aucun jeux</h3>
     @endif
 </div>
+
 @endsection
+
