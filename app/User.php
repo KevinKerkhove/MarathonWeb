@@ -36,8 +36,8 @@ class User extends Authenticatable {
         'email_verified_at' => 'datetime',
     ];
 
-    function seen() {
-        return $this->belongsToMany("App\Episode", 'seen');
+    function episodes() {
+        return $this->belongsToMany("App\Episode", 'episodes');
     }
 
     public function comments() {

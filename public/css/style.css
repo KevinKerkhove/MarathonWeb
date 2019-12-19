@@ -34,7 +34,7 @@ header{
 #logo_container {
     height: 45px;
     width: 100px;
-    background-image: url("/img/logo/logo.png");
+    background-image: ("../img/logo/logo.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;

@@ -26,9 +26,12 @@
             <a class="lien_menu serie" href="{{ url('/') }}">Séries</a>
             </div>
 
-
             <div class="container_liens">
-            <a class="lien_menu connect" href="{{ route('register') }}">Se connecter</a>
+                @if(Auth::user()==null)
+                    <a class="lien_menu connect" href="{{ route('login') }}">Se connecter</a>
+                @else
+                    <a class="lien_menu connect" href="{{ route('logout') }}">Se déconnecter</a>
+                @endif
             </div>
 
             <form action="post" class="container_liens">
@@ -40,31 +43,6 @@
         </div>
     </div>
 </header>
-
-
-<!-- Authentication Links -->
-<nav>
-    <ul>
-        @guest
-        @else
-            <li> Bonjour {{ Auth::user()->name }}</li>
-            @if (Auth::user())
-                <li><a href="{{ route('creer_histoire') }}">Ajouter une histoire</a></li>
-                <li><a href="{{ route('creer_chapitre') }}">Ajouter un chapitre</a></li>
-                <li><a href="{{ route('lier_chapitre') }}">Lier un chapitre</a></li>
-
-            @endif
-            <li><a href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                    Logout
-                </a></li>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                {{ csrf_field() }}
-            </form>
-        @endguest
-    </ul>
-</nav>
 
 <div id="main">
     @yield('content')

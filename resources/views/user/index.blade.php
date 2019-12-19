@@ -1,12 +1,12 @@
 <html>
 <body>
     <div>
-        <p><img scr="{{url($user->avatar)}}">{{$user->name}}</p>
-    </div>
-    <div>
-        @foreach($series as $serie)
-            <img src="{{url($serie->urlImage)}}">
-            <p>{{$serie->nom}}</p>
+        {{$user->avatar}}
+        {{$user->name}}
+        {{$user->email}}
+        {{$user->id}}
+        @foreach($episodes as $episode)
+            {{$user->episode}}
         @endforeach
     </div>
 </body>

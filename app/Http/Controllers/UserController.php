@@ -17,21 +17,20 @@ class UserController
     public function index()
     {
         $user = Auth::user();
-        return view('user.index', ['user' => $user]);
+
+        $avatar=$user->avatar;
+        $nom=$user->name;
+        $email=$user->email;
+        $episodes=$user->episodes;
+
+        return view('user.show',['avatar'=>$avatar,'nom'=>$nom,'email'=>$email,'episodes'=>$episodes]);
     }
 
+    public function deconnexion()
+    {
+        auth()->logout();
 
-    public function show(Request $request){
-        $user=Auth::user()->get();
-        $action = $request->query('action', 'show');
-        $seen=$user->seen;
-        $episodes=$seen->episode_id;
-        $seen2=$episodes->seen;
-        $series=$episodes->serie_id;
-
-        return view('user.index',['user'=>$user,'episodes'=>$episodes,'seen'=>$seen,'seen2'=>$seen2,'series'=>$series,'action'=>$action]);
+        return redirect('/');
     }
-
-
 
 }
