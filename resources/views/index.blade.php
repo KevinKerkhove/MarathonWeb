@@ -59,7 +59,11 @@ use App\Serie;
                 @endforeach
             </div>
             <div id="comu">
-
+                @foreach($fiveComments as $fiveComment)
+                    <div class="item_division">
+                        <span>{{$fiveComment->content}}</span>
+                    </div>
+                @endforeach
             </div>
         @else
             <h3>Aucune série</h3>
