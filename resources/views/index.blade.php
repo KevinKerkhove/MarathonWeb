@@ -32,7 +32,6 @@ use App\Serie;
 
     <div id="content">
         <div id="container_content">
-
             @if(!empty($series4View))
                 <div id="divisions">
                     <div class="division divison_serie_les_mieux_notees">
@@ -61,15 +60,14 @@ use App\Serie;
                 <h3>Aucune série</h3>
             @endif
         </div>
-                    <div class="content_division">
-                        @foreach($series4View as $serie4View)
-                            <div class="item_division">
-                                <a href="{{route('serie.show',$serie4View->id)}}"><div class="item_division_hover"><span>Plus...</span></div><img src="{{url($serie4View->urlImage)}}"></a>
-                                <span>{{$serie4View->nom}}</span>
-                            </div>
-                        @endforeach
-                    </div>
+        <div class="content_division">
+            @foreach($series4View as $serie4View)
+                <div class="item_division">
+                    <a href="{{route('serie.show',$serie4View->id)}}"><div class="item_division_hover"><span>Plus...</span></div><img src="{{url($serie4View->urlImage)}}"></a>
+                    <span>{{$serie4View->nom}}</span>
                 </div>
+            @endforeach
+        </div>
                 <div>
                     <div class="titre_division">
                         <span>Les dernières sorties</span>
