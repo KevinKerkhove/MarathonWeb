@@ -1,14 +1,13 @@
 <html>
 <body>
     <div>
-        <p><img scr=http://172.31.146.100/~dut19_groupe16{{$users->avatar}}">{{$users->name}}</p>
+        <p><img scr="{{url($user->avatar)}}">{{$user->name}}</p>
     </div>
-
     <div>
-        <p></p>
+        @foreach($series as $serie)
+            <img src="{{url($serie->urlImage)}}">
+            <p>{{$serie->nom}}</p>
+        @endforeach
     </div>
-
-
-
 </body>
 </html>

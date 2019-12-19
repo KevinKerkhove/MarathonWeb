@@ -16,6 +16,9 @@ use App\Http\Resources\GenreResource;
 use App\Http\Resources\SerieResource;
 use App\Serie;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Auth::routes();
 
 Route::get('/comment/create/{id}', 'CommentController@create')->name('comment.create');
@@ -29,6 +32,7 @@ Route::get('/comment/update/{id}', 'CommentController@update')->name('comment.up
 Route::get('/', 'MainController@index')->name('home');
 Route::get('/series','SerieController@index')->name('serie.index');
 Route::get('/episodes','EpisodeController@show')->name('episode.show');
+Route::get('/user','UserController@index')->name('user.index');
 
 Route::resource('serie','SerieController');
 Route::resource('episode','EpisodeController');
