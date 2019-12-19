@@ -2,9 +2,6 @@
 
 @section('content')
 
-
-
-
 <html>
     <body>
         <div>
@@ -52,11 +49,52 @@
 
 
         <div>
-            <p><strong>Commentaires: </strong></p>
-            @foreach($commentaires as $commentaire)
-                <p><strong>Utilisateur: </strong>{{$commentaire->id}}</p>
-                <p>{{$commentaire->content}}</p>
+           @foreach($saisons as $saison)
+                <button>Saison {{$saison->saison}}</button>
+                @foreach($episodes as $episode)
+                    @if($saison->saison==$episode->saison)
+                        <li >
+                        <a href="{{route('episode.show',$episode->id)}}">Episode {{$episode->numero}} {{$episode->nom}}</a>
+                        </li>
+                    @endif
+                @endforeach
             @endforeach
+
+        </div>
+
+        @if(!$isAdmin)
+            <div>
+                @foreach($commentaires as $commentaire)
+                    @if(($commentaire->validated)==true)
+                        <p><strong>Commentaires: </strong></p>
+                        <p>Utilisateur: {{$commentaire->id}}</p>
+                        <p>{{$commentaire->content}}</p>
+                        <p>Note : {{$commentaire->note}}</p>
+                        <p>Date de mise en ligne : {{$commentaire->created_at}}</p>
+                        <p>{{$commentaire->validated}}</p>
+                        <div style="text-align:center;">
+                            <a href="{{route('comment.edit',$commentaire->id)}}">Administration du commentaire</a>
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+        @else
+            <div>
+                @foreach($commentaires as $commentaire)
+                    <p><strong>Commentaires: </strong></p>
+                    <p>Utilisateur: {{$commentaire->id}}</p>
+                    <p>{{$commentaire->content}}</p>
+                    <p>{{$commentaire->note}}</p>
+                    <p>{{$commentaire->created_at}}</p>
+                    <p>{{$commentaire->validated}}</p>
+                @endforeach
+            </div>
+        @endif
+
+
+
+        <div style="text-align:center;">
+            <h4><a href="{{route('comment.create',$serie->id)}}">Ajouter un commentaire</a></h4>
         </div>
 
     </body>
