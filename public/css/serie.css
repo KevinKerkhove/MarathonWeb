@@ -1,0 +1,144 @@
+
+
+.container{
+    width: 73%;
+    margin: 0 auto;
+}
+
+
+.serie_show{
+    padding-top: 180px;
+    color: white;
+
+}
+
+.serie_img_affiche{
+    width: 34%;
+}
+
+.serie_top_infos{
+
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.serie_infos_name{
+    width: 51%;
+
+    display: flex;
+    align-items: center;
+
+}
+
+.serie_top_infos_name{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+}
+
+.serie_checkbox{
+
+    width: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
+.serie_btn_vue{
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    margin-left: 10px;
+}
+
+input[type='checkbox']{
+    position: absolute;
+    left: -9999px;
+}
+input:checked + label{
+    background-color: red;
+}
+
+.carre_rose{
+    position: absolute;
+    width: 50px;
+    height: 70px;
+    background-color: deeppink;
+    z-index: 10;
+    left : -10px
+}
+
+.serie_mid_infos{
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.carre_rose_mid{
+    position: absolute;
+    width: 15px;
+    height: 30px;
+    background-color: deeppink;
+    z-index: 10;
+    left : -5px
+}
+
+.serie_mid_infos_name{
+    position: relative;
+}
+
+.serie_synopsis_titre{
+    z-index: 20;
+    position: relative;
+    font-size: 25px;
+    font-weight: 700;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.serie_mid_infos_synopsis{
+    width: 34%;
+}
+
+.serie_mid_infos_avis{
+    width: 51%;
+}
+
+
+.serie_mid_notes{
+    margin: 10px 0 ;
+    font-size: 12px;
+}
+
+
+.note > span{
+    font-weight: 700;
+}
+
+
+.serie_form_commentaire{
+    width: 49%;
+    background-color: red;
+}
+
+.textarea_serie_commentaire{
+    resize: none;
+    width: 100%;
+}
+
+.btn_saison{
+    width: 100px;
+    text-align: center;
+    height: 33px;
+    border:2px solid white
+
+}

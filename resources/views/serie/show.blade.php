@@ -3,13 +3,8 @@
 @section('content')
 
 
-
-
-<html>
-    <body>
         <div>
-            <img src="http://172.31.146.100/~dut19_groupe16{{$serie->urlImage}}">
-
+            <img src="{{url($serie->urlImage)}}">
         </div>
 
         <div>
@@ -50,13 +45,64 @@
             @endforeach
         </div>
 
+
+        <!--Les saisons et épisode-->
+
+
+        <div id="Liste-Saison">
+            @foreach($saisons as $saison)
+                <button onclick="opena(event, 'Saison {{$saison}}')">Saison {{$saison->saison}}</button>
+            @endforeach
+        </div>
+        <div id="saison">
+            @foreach($saisons as $saison)
+                <div id="saison{{$saison}}" class="initFerme">
+                    @foreach($episodes as $episode)
+                        @if($episode->saison == $saison->saison)
+                            <div>
+                                <p>
+                                    @if($episode->urlImage)
+                                        <img src="{{url($episode->urlImage)}}">
+                                    @endif
+                                    <p>Episode {{$episode->numero}}: {{$episode->nom}}</p>
+                                </p>
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
+            @endforeach
+        </div>
+
+        <!--Les commentaires-->
+
         @if(!$isAdmin)
             <div>
                 @foreach($commentaires as $commentaire)
                     @if(($commentaire->validated)==true)
                         <p><strong>Commentaires: </strong></p>
-                        <p>Utilisateur: {{$commentaire->id}}</p>
+                        <p>Utilisateur: {{$name}}</p>
                         <p>{{$commentaire->content}}</p>
+                        <p>Note : {{$commentaire->note}}</p>
+                        <p>Date de mise en ligne : {{$commentaire->created_at}}</p>
+                        <p>{{$commentaire->validated}}</p>
+                        <div style="text-align:center;">
+                            <form action="{{route('comment.update',$commentaire->id)}}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                @if($commentaire->validated==0)
+                                    <div>
+                                        <button class="btn btn-success" type="submit" href="{{URL::route('serie.index')}}">Valider le commentaire</button>
+                                    </div>
+                                @else
+                                    <div>
+                                        <button class="btn btn-success" type="submit" href="{{URL::route('serie.index')}}">Dévalider le commentaire</button>
+                                    </div>
+                                @endif
+                                <div>
+                                    <button class="btn btn-success" type="submit" href="{{URL::route('serie.index')}}">Supprimer le commentaire</button>
+                                </div>
+                            </form>
+                        </div>
                     @endif
                 @endforeach
             </div>
@@ -64,17 +110,42 @@
             <div>
                 @foreach($commentaires as $commentaire)
                     <p><strong>Commentaires: </strong></p>
-                    <p>Utilisateur: {{$commentaire->id}}</p>
+                    <p>Utilisateur: {{$name}}</p>
                     <p>{{$commentaire->content}}</p>
+                    <p>{{$commentaire->note}}</p>
+                    <p>Date de mise en ligne : {{$commentaire->created_at}}</p>
                 @endforeach
             </div>
         @endif
 
 
-
-        <div style="text-align:center;">
-            <h4><a href="{{route('comment.create',$serie->id)}}" method="POST">Ajouter un commentaire</a></h4>
-        </div>
+        @if($utilisateur!=null)
+            <div style="text-align:center;">
+                <form action="{{route('comment.store')}}" method="POST">
+                    {!! csrf_field() !!}
+                    <input type="hidden" name="idSerie" value="{{$serie->id}}">
+                    <div class="text-center" style="margin-top: 2rem">
+                        <h3>Création d'un commentaire</h3>
+                        <hr class="mt-2 mb-2">
+                    </div>
+                    <div>
+                        <label for="content"><strong>Contenu :</strong></label>
+                        <input type="text" id="content" name="contenu"
+                               value="{{ old('content') }}">
+                    </div>
+                    <div>
+                        <label for="note"><strong>Note :</strong></label>
+                        <input type="float" id="note" name="note"
+                               value="{{ old('note') }}">
+                    </div>
+                    <div>
+                        <button class="btn btn-success" type="submit">Valide</button>
+                    </div>
+                </form>
+            </div>
+        @else
+            <span>Connectez-vous pour poster un commentaire.</span>
+        @endif
 
     </body>
 </html>

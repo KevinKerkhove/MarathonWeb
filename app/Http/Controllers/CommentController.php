@@ -2,45 +2,67 @@
 
 namespace App\Http\Controllers;
 
+use App\Serie;
 use Illuminate\Http\Request;
 use App\Comment;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
     public function create($id)
     {
-        return view('comment.create',$id);
+        $serie=Serie::find($id);
+        return view('comment.create',['serie'=>$serie]);
     }
 
-    public function store(Request $request,$id)
+
+    public function store(Request $request)
     {
         $this->validate(
             $request,
             [
-                'content' => 'required',
-                'note' => 'required',
-                'validated' => false
+                'contenu' => 'required',
+                'note' => 'required'
             ]
         );
 
         $commentaire= new Comment;
         $user = Auth::user();
 
-        $commentaire->serie_id = $id;
-        $commentaire->user_id = $user->id;
-        $commentaire->content = $request->contenu;
-        $commentaire->note = $request->note;
+        if($user!=null){
+            $commentaire->serie_id = $request->idSerie;
+            $commentaire->user_id = $user->id;
+            $commentaire->content = $request->contenu;
+            $commentaire->note = $request->note;
+            if(isset($request->validated) && $request->validated == "on")
+                $commentaire->validated = 1;
+            else
+                $commentaire->validated = 0;
 
-        $commentaire->save();
+            $commentaire->save();
+        }
 
-        return redirect('/comment');
+        return redirect('/serie/'.$commentaire->serie_id);
     }
 
-    public function show(Request $request, $id)
+    public function edit($id)
     {
-        $action = $request->query('action', 'show');
         $commentaire = Comment::find($id);
-        return view('comment.show', ['commentaire' => $commentaire, 'action' => $action]);
+        return view('comment.edit', ['commentaire' => $commentaire]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $commentaire = Comment::find($id);
+
+        $commentaire->validated = $request->validated;
+        if (isset($request->validated) && $request->validated == "on")
+            $commentaire->validated = 1;
+        else
+            $commentaire->validated = 0;
+        $commentaire->save();
+
+        return redirect('/serie/');
     }
 
     public function destroy(Request $request, $id)

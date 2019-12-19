@@ -11,4 +11,9 @@ class Episode extends Model
         return $this->belongsTo("App\Serie", "serie_id");
     }
 
+    function users() {
+        return $this->belongsToMany("App\User", 'users');
+    }
+
+
 }

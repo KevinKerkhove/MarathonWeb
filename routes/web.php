@@ -16,18 +16,31 @@ use App\Http\Resources\GenreResource;
 use App\Http\Resources\SerieResource;
 use App\Serie;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Auth::routes();
 
-Route::get('/', 'MainController@index')->name('home');
-Route::get('/series','SerieController@index')->name('serie.index');
-
 Route::resource('serie','SerieController');
+
 Route::resource('episode','EpisodeController');
 
-Route::resource('comment', 'CommentController');
-
 Route::get('/', 'MainController@index')->name('home');
 
-Route::get('/series','SerieController@index')->name('serie.index');
+Route::get('/home', 'MainController@index')->name('home');
 
-Route::get('/comment/create/', 'CommentController@create')->name('comment.create');
+Route::post('/comment', 'CommentController@store')->name('comment.store');
+
+Route::get('/comment/edit/{id}', 'CommentController@edit')->name('comment.edit');
+
+Route::get('/comment/update/{id}', 'CommentController@update')->name('comment.update');
+
+Route::get('/comment/create/{id}', 'CommentController@create')->name('comment.create');
+
+Route::get('/episode','EpisodeController@show')->name('episode.show');
+
+Route::get('/user','UserController@index')->name('user.index');
+
+Route::get('/serie','SerieController@index')->name('serie.index');
+
+Route::get('/deconnexion','UserController@deconnexion')->name('logout');
