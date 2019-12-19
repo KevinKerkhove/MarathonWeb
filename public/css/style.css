@@ -1,1 +1,273 @@
 /* Ici, votre style sera écrit */
+html{
+    font-size: 62.5%;
+}
+*{
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header{
+    z-index: 500;
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container_header {
+    height: 100%;
+    width: 73%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
+}
+
+.logo{
+    height: auto;
+    width: 100px;
+}
+
+#logo_container {
+    height: 45px;
+    width: 100px;
+    background-image: url("/img/logo/logo.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#first_page{
+    position: relative;
+    height:100vh;
+    width: 100%;
+    background-image: url("/img/background/robot.png");
+    background-position: center;
+    background-size: cover;
+}
+
+#container_hr {
+    position: absolute;
+    top: 0;
+    position: relative;
+    margin: auto;
+    height: 100%;
+    width: 73%;
+}
+
+#container_scroll{
+    position: absolute;
+    bottom: -10px;
+    left: 25%;
+    transform: rotate(-90deg);
+    display: flex;
+    align-items: center;
+    transform-origin: left;
+}
+
+#hrscroll{
+    width: 20vh;
+    height: 2px;
+    background-color:white;
+    border: none;
+}
+
+#txt_scroll{
+    color: white;
+    padding-bottom: 2px;
+    padding-left: 10px;
+}
+
+#hr1{
+    position: absolute;
+    top: 0;
+    left: 49%;
+    height:100vh;
+    width: 1px;
+    background-color:#707070;
+    opacity: 0.22;
+    border: none;
+ }
+
+#hr2{
+    position: absolute;
+    top: 0;
+    left: 66%;
+    height:100vh;
+    width: 1px;
+    background-color:#707070;
+    opacity: 0.22;
+    border: none;
+}
+
+#hr3{
+    position: absolute;
+    top: 0;
+    left: 83%;
+    height:100vh;
+    width: 1px;
+    background-color:#707070;
+    opacity: 0.22;
+    border: none;
+}
+
+#hr4{
+    position: absolute;
+    top: 0;
+    left: 100%;
+    height:100vh;
+    width: 1px;
+    background-color:#707070;
+    opacity: 0.22;
+    border: none;
+}
+
+.liens{
+    width: 68%;
+    height:100%;
+    display: flex;
+}
+
+.container_liens{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.lien_menu{
+    color: white;
+    text-decoration: none;
+    text-align:right;
+
+}
+
+#barre_de_recherche{
+    color: white;
+    width: 50%;
+    background-color: inherit;
+    border: none;
+    border-bottom: solid 1px white;
+    text-align: right;
+    transition: 0.2s all ease;
+    padding: 0 5px 1px;
+}
+
+#barre_de_recherche:hover{
+    width: 60%;
+}
+
+#barre_de_recherche:focus{
+    width: 60%;
+}
+
+#ok {
+    display: none;
+}
+
+
+/*** FIN FIRST PAGE ***/
+
+#content {
+    width: 100%;
+    min-height:100vh;
+    background-image: url("/img/background/black.jpg");
+    display: flex;
+    justify-content: center;
+}
+
+#container_content{
+    padding-top: 15vh;
+    width: 73%;
+    display: flex;
+}
+
+#comu{
+    width: 34%;
+    height: 50vh;
+}
+
+#divisions{
+    width: 66%;
+    padding-bottom: 20px;
+    background-color: red;
+
+}
+
+.titre_division span{
+    color: white;
+    font-size: 5.5rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    position: relative;
+    z-index: 1;
+}
+.titre_division span::before{
+    content:"";
+    position: absolute;
+    left: -2%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 120%;
+    width: 50px;
+    background-color: #FF0059;
+}
+.titre_division span::after{
+    content:"LES";
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 50px;
+}
+.titre_division{
+    padding: 5vh 0  ;
+}
+.divison_serie_les_mieux_notees{
+    padding-bottom: 10vh;
+}
+.content_division{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.item_division{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 24%;
+}
+
+.item_division a{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.item_division a img{
+    height: 100%;
+}
+
+.item_division span{
+    padding-top: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
