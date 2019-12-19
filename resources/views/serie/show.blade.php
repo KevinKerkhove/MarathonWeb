@@ -6,7 +6,6 @@
     <body>
         <div>
             <img src="{{url($serie->urlImage)}}">
-
         </div>
 
         <div>
@@ -67,7 +66,7 @@
                 @foreach($commentaires as $commentaire)
                     @if(($commentaire->validated)==true)
                         <p><strong>Commentaires: </strong></p>
-                        <p>Utilisateur: {{$commentaire->id}}</p>
+                        <p>Utilisateur: {{$name}}</p>
                         <p>{{$commentaire->content}}</p>
                         <p>Note : {{$commentaire->note}}</p>
                         <p>Date de mise en ligne : {{$commentaire->created_at}}</p>
@@ -97,9 +96,10 @@
             <div>
                 @foreach($commentaires as $commentaire)
                     <p><strong>Commentaires: </strong></p>
-                    <p>Utilisateur: {{$commentaire->id}}</p>
+                    <p>Utilisateur: {{$name}}</p>
                     <p>{{$commentaire->content}}</p>
                     <p>{{$commentaire->note}}</p>
+                    <p>Date de mise en ligne : {{$commentaire->created_at}}</p>
                 @endforeach
             </div>
         @endif

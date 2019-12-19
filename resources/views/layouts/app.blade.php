@@ -23,7 +23,7 @@
             </div>
 
             <div class="container_liens">
-            <a class="lien_menu serie" href="{{ url('/') }}">Séries</a>
+            <a class="lien_menu serie" href="{{ url('/serie') }}">Séries</a>
             </div>
 
             <div class="container_liens">
