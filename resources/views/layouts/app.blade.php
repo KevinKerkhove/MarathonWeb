@@ -18,7 +18,7 @@
 <header id="header">
     <div id="container_header">
         <a class="logo" href="{{ url('/') }}">
-            <div id="logo_container" style="background-image: url("../img/logo/logo.png")"></div>
+            <div id="logo_container"></div>
         </a>
         <div class="liens">
             <div class="container_liens">
