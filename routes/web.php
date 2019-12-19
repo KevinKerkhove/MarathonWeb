@@ -37,7 +37,7 @@ Route::get('/comment/update/{id}', 'CommentController@update')->name('comment.up
 
 Route::get('/comment/create/{id}', 'CommentController@create')->name('comment.create');
 
-Route::get('/episodes','EpisodeController@show')->name('episode.show');
+Route::get('/episode','EpisodeController@show')->name('episode.show');
 
 Route::get('/user','UserController@index')->name('user.index');
 

@@ -14,7 +14,7 @@
                 <option value="All"
                         @if($requete == "All")selected @endif></option>
                 @foreach($genres as $genre)
-                    <option values="{{$genre}}" @if($requete==$genre)selected @endif>{{$genre}}</option>
+                    <option value="{{$genre}}" @if($requete==$genre)selected @endif>{{$genre}}</option>
                     @endforeach
             </select>
             <input type="submit" class="btn btn-darl" value="OK">
@@ -30,15 +30,7 @@
             @endforeach
 
         </div>
-    @elseif(empty($serie))
-        @foreach($series as $serie)
-            <div>
-                <a href="{{route('serie.show',$serie->id)}}"><img src="{{url($serie->urlImage)}}"></a>
-                <p>{{$serie->nom}}</p>
-            </div>
 
-
-        @endforeach
     @else
 
         <h3>aucun jeux</h3>

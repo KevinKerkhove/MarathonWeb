@@ -18,6 +18,7 @@ class EpisodeController extends Controller
     public function show(Request $request,$id){
         $action = $request->query('action', 'show');
         $episodes=Episode::find($id);
+
         $seen=$episodes->seen;
 
         return view('episode.show',['episodes'=>$episodes,'seen'=>$seen,'action'=>$action]);

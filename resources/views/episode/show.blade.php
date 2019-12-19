@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <html>
-    <body>
+
     <div>
         <img src="{{url($episodes->urlImage)}}">
 
@@ -34,6 +33,5 @@
         <input type="checkbox" name="vue" value="seen">Vue<br>
     </div>
 
-    </body>
-    </html>
+
     @endsection
