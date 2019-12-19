@@ -22,30 +22,45 @@ use App\Serie;
 <div id="content">
     <div id="container_content">
 
-        @if(!empty($series4))
+        @if(!empty($series4View))
             <div id="divisions">
-            <div class="division divison_serie_les_mieux_notees">
-                <div class="titre_division">
-                    <span>Les séries les mieux notées</span>
+                <div class="division divison_serie_les_mieux_notees">
+                    <div class="titre_division">
+                        <span>Les séries les mieux notées</span>
+                    </div>
+                    <div class="content_division">
+                        @foreach($series4View as $serie4View)
+                            <div class="item_division">
+                                <a href="{{route('serie.show',$serie4View->id)}}"><img src="http://172.31.146.100/~dut19_groupe16{{$serie4View->urlImage}}"></a>
+                                <span>{{$serie4View->nom}}</span>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
-                <div class="content_division">
-                    @foreach($series4 as $serie4)
-                        <div class="item_division">
-                            <a href="{{route('serie.show',$serie4->id)}}"><img src="http://172.31.146.100/~dut19_groupe16{{$serie4->urlImage}}"></a>
-                            <span>{{$serie4->nom}}</span>
-                        </div>
+                <div>
+                    <div class="titre_division">
+                        <span>Les séries les blablabla</span>
+                    </div>
+                    <div class="content_division">
+                        @foreach($series4Here as $serie4Here)
+                            <div class="item_division">
+                                <a href="{{route('serie.show',$serie4Here->id)}}"><img src="http://172.31.146.100/~dut19_groupe16{{$serie4Here->urlImage}}"></a>
+                                <span>{{$serie4Here->nom}}</span>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                @foreach($genres as $genre)
+                    <div>{{$genre['nom']}}</div>
+                    @foreach($genre->series as $s)
+                        <a href="{{route('serie.show',$s->id)}}"><img src="http://172.31.146.100/~dut19_groupe16{{$s->urlImage}}"></a>
+                            <p></br>{{$s->nom}}</br>{!!$s->resume!!}</p></br>
                     @endforeach
-                </div>
-            </div>
-            @foreach($genres as $genre)
-                <div>{{$genre['nom']}}</div>
-                @foreach($genre->series as $s)
-                    <a href="{{route('serie.show',$s->id)}}"><img src="http://172.31.146.100/~dut19_groupe16{{$s->urlImage}}"></a>
-                        <p></br>{{$s->nom}}</br>{!!$s->resume!!}</p></br>
                 @endforeach
-            @endforeach
             </div>
-            <div id="comu"></div>
+            <div id="comu">
+
+            </div>
         @else
             <h3>Aucune série</h3>
         @endif
