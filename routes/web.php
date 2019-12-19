@@ -37,7 +37,7 @@ Route::get('/comment/update/{id}/{validated}', 'CommentController@update')->name
 
 Route::get('/comment/destroy/{id}', 'CommentController@destroy')->name('comment.destroy');
 
-Route::get('/comment/create/{id}', 'CommentController@create')->name('comment.create');
+Route::get('/serie/{id}', 'CommentController@create')->name('comment.create');
 
 Route::get('/episode','EpisodeController@show')->name('episode.show');
 

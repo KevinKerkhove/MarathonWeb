@@ -120,7 +120,7 @@
      <input type="text" id="note_serie">
     </div>
     <div>
-        <input class="btn_envoi_form_commentaire" type="submit">
+        <a href="{{route('comment.create',$serie->id)}}"><input class="btn_envoi_form_commentaire" type="submit"></a>
     </div>
 </div>
 
@@ -135,7 +135,7 @@
 @foreach($commentaires as $commentaire)
     @if(($commentaire->validated)==true)
         <p><strong>Commentaires: </strong></p>
-        <p>Utilisateur: {{$commentaire->id}}</p>
+        <p>Utilisateur: {{$commentaire->user_id}}</p>
         <p>{{$commentaire->content}}</p>
     @endif
 @endforeach
@@ -144,7 +144,7 @@
 <div>
 @foreach($commentaires as $commentaire)
     <p><strong>Commentaires: </strong></p>
-    <p>Utilisateur: {{$commentaire->id}}</p>
+    <p>Utilisateur: {{$commentaire->user_id}}</p>
     <p>{{$commentaire->content}}</p>
 @endforeach
 </div>
