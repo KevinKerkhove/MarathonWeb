@@ -45,6 +45,20 @@
 </div>
 
 </div>
+        <div id="saison">
+            @foreach($saisons as $saison)
+                <button>Saison {{$saison->saison}}</button>
+                @foreach($episodes as $episode)
+                    @if($saison->saison==$episode->saison)
+                        <div id=episode"">
+                            <a href="{{route('episode.show',$episode->id)}}"><img src="{{url($episode->urlImage)}}"></a>
+                            <p>Episode {{$episode->numero}}: {{$episode->nom}}</p>
+                        </div>
+                    @endif
+                @endforeach
+            @endforeach
+
+        </div>
 
 <div class="serie_mid_infos">
 <div class="serie_mid_infos_synopsis">

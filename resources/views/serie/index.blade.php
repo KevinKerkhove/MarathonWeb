@@ -30,10 +30,18 @@
             @endforeach
 
         </div>
+    @elseif(empty($serie))
+        @foreach($series as $serie)
+            <div>
+                <a href="{{route('serie.show',$serie->id)}}"><img src="{{url($serie->urlImage)}}"></a>
+                <p>{{$serie->nom}}</p>
+            </div>
 
+
+        @endforeach
     @else
 
-        <h3>aucun jeux</h3>
+        <h3>aucune série</h3>
     @endif
 </div>
 
