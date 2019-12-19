@@ -15,8 +15,9 @@ use App\Genre;
 use App\Http\Resources\GenreResource;
 use App\Http\Resources\SerieResource;
 use App\Serie;
-use Illuminate\Routing\Route;
+
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
