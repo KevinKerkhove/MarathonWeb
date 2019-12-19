@@ -39,8 +39,12 @@
 
 
                 </div>
+                @if(!empty($serie->urlAvis))
+    <div class="playerYoutube">
+        <iframe class="youtube" width="1280" height="720" src="{{$serie->urlAvis}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-    <div class="playerYoutube"></div>
+    </div>
+                    @endif
 
 </div>
 

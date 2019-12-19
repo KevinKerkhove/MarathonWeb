@@ -181,6 +181,7 @@ input:checked + label{
 
     display: flex;
     align-items: center;
+    position: relative;
 
 }
 
@@ -354,3 +355,20 @@ hr.serie_info{
 }
 
 
+.playerYoutube{
+    width: 100%;
+    align-self: baseline;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+}
+
+.playerYoutube > iframe{
+    width: 100%;
+    z-index: 10;
+    height: auto;
+    background: #000;
+;
+}
