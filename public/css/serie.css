@@ -1,4 +1,6 @@
-
+body{
+    background: url('../img/background/black.png');
+}
 
 .container{
     width: 73%;
