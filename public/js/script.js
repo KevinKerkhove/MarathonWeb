@@ -11,3 +11,59 @@ $(function(){
     });
 });
 
+let saison = document.getElementById('nbSaisons').value;
+
+$(document).ready(function(){
+    $('#caroussel_saison').slick({
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 4
+    });
+});
+
+$(document).ready(function(){
+    for (let i = 1; i<=saison;i++){
+    $('.caroussel_episode_'+i+'').slick({
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 4
+    });}
+});
+
+
+for (j=2;j<=saison;j++){
+    $('.caroussel_episode_'+j+'').hide();
+}
+
+for (k=1;k<=saison;k++){
+
+    $('.btn_saison_'+ k +'').click(function(){
+        for (let m = 1; m<=saison;m++) {
+            alert(k);
+            $('.caroussel_episode_' + m + '').hide()
+            console.log('caroussel_episode_'+m);
+
+        }
+        for (let i = 1; i<=saison;i++) {
+            $('.btn_saison_' + i + '').css('background-color', 'inherit');
+            $('.btn_saison_' + i + '').css('color', 'white');
+        }
+        $(this).css('background','white');
+        $(this).css('color','black');
+
+
+
+
+
+
+
+    });
+
+
+    console.log('carousode_'+k);
+    console.log('coucou');
+}
+
+
+
+
