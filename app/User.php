@@ -37,7 +37,8 @@ class User extends Authenticatable {
     ];
 
     function episodes() {
-        return $this->belongsToMany("App\Episode", 'episodes');
+        return $this->belongsToMany("App\Episode", 'episodes
+        ');
     }
 
     public function comments() {

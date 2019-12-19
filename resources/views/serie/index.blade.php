@@ -9,7 +9,7 @@
 <div class="filtre">
     @if(!empty($series))
         <h3>Filtrer par genre</h3>
-        <form action="{{route('serie.index')}}" method=""get>
+        <form action="{{route('serie.index')}}" method="get">
             <select name="requete">
                 <option value="All"
                         @if($requete == "All")selected @endif></option>
@@ -31,6 +31,16 @@
 
         </div>
     @elseif(empty($serie))
+        @foreach($series as $serie)
+            <div>
+                <a href="{{route('serie.show',$serie->id)}}"><img src="{{url($serie->urlImage)}}"></a>
+                <p>{{$serie->nom}}</p>
+            </div>
+
+
+        @endforeach
+    @else
+
         <h3>aucun jeux</h3>
     @endif
 </div>
