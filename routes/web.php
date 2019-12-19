@@ -15,12 +15,15 @@ use App\Genre;
 use App\Http\Resources\GenreResource;
 use App\Http\Resources\SerieResource;
 use App\Serie;
+use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
 Route::get('/', 'MainController@index')->name('home');
 Route::get('/series','SerieController@index')->name('serie.index');
 Route::get('/episodes','EpisodeController@show')->name('episode.show');
+Route::get('/user','UserController@index')->name('user.index');
 
 Route::resource('serie','SerieController');
 Route::resource('episode','EpisodeController');

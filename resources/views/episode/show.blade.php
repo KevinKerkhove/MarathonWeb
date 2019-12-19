@@ -4,7 +4,7 @@
     <html>
     <body>
     <div>
-        <img src="http://172.31.146.100/~dut19_groupe16{{$episodes->urlImage}}">
+        <img src="{{url($episodes->urlImage)}}">
 
     </div>
 
