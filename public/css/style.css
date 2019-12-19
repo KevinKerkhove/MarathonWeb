@@ -6,10 +6,6 @@ html{
     margin: 0;
     font-family: 'Montserrat', sans-serif;
 }
-
-body{
-    background: url('../img/background/black.png');
-}
 #header{
     z-index: 500;
     position: fixed;
@@ -104,6 +100,7 @@ body{
     color: white;
     padding-bottom: 2px;
     padding-left: 10px;
+    font-size: 15px;
 }
 #hr1{
     position: absolute;
@@ -204,6 +201,33 @@ body{
 #comu{
     width:20%;
     height: auto;
+}
+#container_comment{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user_comment{
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.text_comment{
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.comment{
+    width: 90%;
+    margin-bottom: 2vh;
+    display: flex;
+    flex-direction: column;
 }
 .titre_comu{
     padding: 7vh 0;
@@ -488,218 +512,3 @@ body{
     color: white;
 }
 
-.serie_nom_serie{
-    font-size: 50px;
-    font-weight: 700;
-    color: #FFF;
-    z-index: 20;
-}
-
-#barre_de_recherche:focus{
-    width: 60%;
-}
-
-#ok {
-    display: none;
-}
-
-.container{
-    width: 73%;
-    margin: 0 auto;
-}
-
-
-.serie_show{
-    padding-top: 180px;
-    color: white;
-
-}
-
-.serie_img_affiche{
-    width: 34%;
-}
-
-.serie_top_infos{
-
-    display: flex;
-    justify-content: space-between;
-    color: white;
-    margin-bottom: 50px;
-}
-
-.serie_infos_name{
-    width: 51%;
-
-    display: flex;
-    align-items: center;
-
-}
-
-.serie_top_infos_name{
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-
-}
-
-.serie_checkbox{
-
-    width: 100px;
-
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-
-}
-
-.serie_btn_vue{
-    height: 50px;
-    width: 50px;
-    background-color: white;
-    margin-left: 10px;
-}
-
-input[type='checkbox']{
-    position: absolute;
-    left: -9999px;
-}
-input:checked + label{
-    background-color: red;
-}
-
-.carre_rose{
-    position: absolute;
-    width: 50px;
-    height: 70px;
-    background-color: #FF0059;
-    z-index: 10;
-    left : -10px
-}
-
-.serie_mid_infos{
-    color: white;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.carre_rose_mid{
-    position: absolute;
-    width: 15px;
-    height: 30px;
-    background-color: #FF0059;
-    z-index: 10;
-    left : -5px
-}
-
-.serie_mid_infos_name{
-    position: relative;
-}
-
-.serie_synopsis_titre{
-    z-index: 20;
-    position: relative;
-    font-size: 25px;
-    font-weight: 700;
-    font-style: italic;
-    text-decoration: underline;
-}
-
-.serie_mid_infos_synopsis{
-    width: 34%;
-}
-
-.serie_mid_infos_avis{
-    width: 51%;
-}
-
-
-.serie_mid_notes{
-    margin: 10px 0 ;
-    font-size: 12px;
-}
-
-
-.note > span{
-    font-weight: 700;
-}
-
-
-.serie_form_commentaire{
-    width: 49%;
-    color: white;
-
-}
-
-.textarea_serie_commentaire{
-    resize: none;
-    width: 100%;
-    height: 200px;
-    background-color: inherit;
-    border: none;
-
-}
-
-
-hr.serie_info{
-    margin: 50px 0;
-}
-
-.bottom_form_comment{
-    display: flex;
-    justify-content: space-between;
-
-    width: 100%;
-}
-
-.serie_form_commentaire{
-    border: 2px solid white;
-    margin: 20px 0;
-}
-
-#note_serie{
-    border: none;
-    background-color: inherit;
-}
-
-.btn_envoi_form_commentaire{
-    border: white 2px solid;
-    border-bottom: none;
-    border-right: none;
-    background-color: inherit;
-    color: white;
-    height: 30px;
-    font-weight: 800;
-
-}
-
-.serie_top_genre{
-    align-self: flex-end;position: absolute;
-    font-size: 14px;
-    position: relative;
-}
-
-.noms_genre{
-    font-size: 16px;
-    font-weight: 600;
-    position: relative;
-    z-index: 20;
-}
-
-.carre_rose_genre{
-    position: absolute;
-    width: 8px;
-    height: 20px;
-    background-color: #FF0059;
-    z-index: 10;
-    left : -3px
-}
-
-.container_page_serie{
-    width: 73%;
-    margin: 0 auto;
-
-}
