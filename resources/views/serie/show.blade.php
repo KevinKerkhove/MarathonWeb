@@ -55,7 +55,7 @@
                 @foreach($episodes as $episode)
                     @if($saison->saison==$episode->saison)
                         <li>
-                            <a href="{{route('episode.show',$episode->id)}}">Episode {{$episode->numero}} {{$episode->nom}}</a>
+                            <a href="{{route('episode.show',$episode->id)}}"><img src="{{url($episode->urlImage)}}">Episode {{$episode->numero}} {{$episode->nom}}</a>
                         </li>
                     @endif
                 @endforeach
