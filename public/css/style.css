@@ -31,10 +31,10 @@ html{
 #logo_container {
     height: 45px;
     width: 100px;
-    background-image: url("../img/logo/logo.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    background-image: url("../img/logo/logo.png");
 }
 #first_page{
     position: relative;
