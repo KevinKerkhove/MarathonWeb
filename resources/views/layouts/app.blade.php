@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 </head>
 <body>
-<header>
+<header id="header">
     <div id="container_header">
         <a class="logo" href="{{ url('/') }}">
             <div id="logo_container"></div>

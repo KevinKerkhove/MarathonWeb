@@ -6,8 +6,7 @@ html{
     margin: 0;
     font-family: 'Montserrat', sans-serif;
 }
-
-header{
+#header{
     z-index: 500;
     position: fixed;
     width: 100%;
@@ -15,8 +14,8 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.2s all ease;
 }
-
 #container_header {
     height: 100%;
     width: 73%;
@@ -25,12 +24,10 @@ header{
     position: relative;
     justify-content: space-between;
 }
-
 .logo{
     height: auto;
     width: 100px;
 }
-
 #logo_container {
     height: 45px;
     width: 100px;
@@ -39,7 +36,6 @@ header{
     background-position: center;
     background-repeat: no-repeat;
 }
-
 #first_page{
     position: relative;
     height:100vh;
@@ -48,7 +44,36 @@ header{
     background-position: center;
     background-size: cover;
 }
+#slogan{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 40%;
+    left: 0;
+}
 
+
+
+#sur_titre_slogan{
+    color: white;
+    text-transform: uppercase;
+    font-size: 48px;
+    font-weight: ;
+}
+
+#titre_slogan{
+    color: white;
+    text-transform: uppercase;
+    font-size: 45.3px;
+    font-weight: 700;
+}
+
+#sous_titre_slogan{
+    color: white;
+    font-size: 16px;
+    font-weight: 300;
+}
 #container_hr {
     position: absolute;
     top: 0;
@@ -57,30 +82,26 @@ header{
     height: 100%;
     width: 73%;
 }
-
 #container_scroll{
     position: absolute;
-    bottom: -10px;
+    bottom: -8px;
     left: 25%;
     transform: rotate(-90deg);
     display: flex;
     align-items: center;
     transform-origin: left;
 }
-
 #hrscroll{
     width: 20vh;
     height: 2px;
     background-color:white;
     border: none;
 }
-
 #txt_scroll{
     color: white;
     padding-bottom: 2px;
     padding-left: 10px;
 }
-
 #hr1{
     position: absolute;
     top: 0;
@@ -91,7 +112,6 @@ header{
     opacity: 0.22;
     border: none;
  }
-
 #hr2{
     position: absolute;
     top: 0;
@@ -102,7 +122,6 @@ header{
     opacity: 0.22;
     border: none;
 }
-
 #hr3{
     position: absolute;
     top: 0;
@@ -113,7 +132,6 @@ header{
     opacity: 0.22;
     border: none;
 }
-
 #hr4{
     position: absolute;
     top: 0;
@@ -124,13 +142,11 @@ header{
     opacity: 0.22;
     border: none;
 }
-
 .liens{
     width: 68%;
     height:100%;
     display: flex;
 }
-
 .container_liens{
     width: 25%;
     height: 100%;
@@ -138,14 +154,14 @@ header{
     justify-content: right;
     align-items: center;
 }
-
 .lien_menu{
     color: white;
     text-decoration: none;
+    font-size: 15px;
+    font-weight: 300;
     text-align:right;
 
 }
-
 #barre_de_recherche{
     color: white;
     width: 50%;
@@ -156,15 +172,12 @@ header{
     transition: 0.2s all ease;
     padding: 0 5px 1px;
 }
-
 #barre_de_recherche:hover{
     width: 60%;
 }
-
 #barre_de_recherche:focus{
     width: 60%;
 }
-
 #ok {
     display: none;
 }
@@ -175,29 +188,38 @@ header{
 #content {
     width: 100%;
     min-height:100vh;
-    background-image: url("/img/background/black.jpg");
     display: flex;
     justify-content: center;
+    background-image: url("/img/background/black.png");
 }
-
 #container_content{
     padding-top: 15vh;
     width: 73%;
     display: flex;
+    justify-content: space-between;
 }
-
 #comu{
-    width: 34%;
-    height: 50vh;
+    width:20%;
+    height: auto;
 }
-
+.titre_comu{
+    padding: 7vh 0;
+    display: flex;
+    justify-content: center;
+}
+.titre_comu span{
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: 900;
+    position: relative;
+    z-index: 1;
+}
 #divisions{
     width: 66%;
     padding-bottom: 20px;
-    background-color: red;
-
 }
-
 .titre_division span{
     color: white;
     font-size: 5.5rem;
@@ -234,27 +256,56 @@ header{
     display: flex;
     justify-content: space-between;
 }
-
 .item_division{
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-basis: 24%;
 }
-
 .item_division a{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     transition: 0.2s all ease;
+    position: relative;
+    overflow: hidden;
+ }
+.item_division_hover{
+    position: absolute;
     width: 100%;
-    height: 90%;
+    height: 100%;
+    top: 100%;
+    background-image: linear-gradient(to right bottom, rgba(255, 0, 89, 0.4),   rgba(244, 63, 169, 0.4), rgba(195, 115, 230, 0.4), rgba(120, 153, 255, 0.4), rgba(0, 178, 255, 0.4));
+    transition: 0.2s all ease;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.item_division_hover span{
+   padding: 5px 15px;
+    border: solid 1px white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s all ease;
+}
+.item_division_hover span:hover{
+    background-color: white;
+    color: black;
+    mix-blend-mode:screen ;
+}
 
+.item_division:hover .item_division_hover{
+    top:0;
+}
+
+.item_division a:hover{
+     transform: scale(1.05);
+ }
 .item_division a img{
     height: 100%;
 }
-
 .item_division span{
     padding-top: 10px;
     font-size: 20px;
