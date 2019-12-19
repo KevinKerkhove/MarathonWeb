@@ -5,8 +5,7 @@
 
 
 
-    <html>
-    <head>
+
         <title>Choix série</title>
         <link rel="stylesheet" href="/style/style.css">
     </head>
@@ -54,11 +53,21 @@
                 <button>Saison {{$saison->saison}}</button>
                 @foreach($episodes as $episode)
                     @if($saison->saison==$episode->saison)
-                        <div id=episode"">
-                            <a href="{{route('episode.show',$episode->id)}}"><img src="{{url($episode->urlImage)}}"></a>
-                            <p>Episode {{$episode->numero}}: {{$episode->nom}}</p>
-                        </div>
+                        @if(($episode->urlImage)==null)
+                            <div id="episode">
+                                <a href="{{route('episode.show',$episode->id)}}"><img src="{{url($episode->nom)}}"></a>
+                            </div>
+
+                            @else
+                            <div id="episode">
+
+                                <a href="{{route('episode.show',$episode->id)}}"><img src="{{url($episode->urlImage)}}"></a>
+                                <p>Episode {{$episode->numero}}: {{$episode->nom}}</p>
+                            </div>
+
+                            @endif
                     @endif
+
                 @endforeach
             @endforeach
 
@@ -151,6 +160,5 @@
 
 
 
-</body>
-</html>
+
 @endsection
