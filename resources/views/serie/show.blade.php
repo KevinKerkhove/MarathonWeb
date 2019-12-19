@@ -49,12 +49,12 @@
         <!--Les saisons et épisode-->
 
 
-        <div>
+        <div id="saison">
             @foreach($saisons as $saison)
                 <button>Saison {{$saison->saison}}</button>
                 @foreach($episodes as $episode)
                     @if($saison->saison==$episode->saison)
-                        <li >
+                        <li>
                             <a href="{{route('episode.show',$episode->id)}}">Episode {{$episode->numero}} {{$episode->nom}}</a>
                         </li>
                     @endif
