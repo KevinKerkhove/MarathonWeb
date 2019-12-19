@@ -190,7 +190,7 @@ html{
     min-height:100vh;
     display: flex;
     justify-content: center;
-    background-image: url("/img/background/black.png");
+    background-image: url("../img/background/black.png");
 }
 #container_content{
     padding-top: 15vh;
