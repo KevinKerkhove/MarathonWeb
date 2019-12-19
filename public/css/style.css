@@ -34,7 +34,7 @@ html{
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url("../img/background/robot.png");
+    background-image: url("../img/logo/logo.png");
 }
 #first_page{
     position: relative;
