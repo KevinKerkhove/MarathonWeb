@@ -31,12 +31,9 @@ class SerieController extends Controller{
         $isAdmin=false;
         $utilisateur = Auth::user();
         if($utilisateur!=null) {
-<<<<<<< HEAD
             $uId=User::find($utilisateur->id);
-=======
             $u=$utilisateur->id;
             $uId=User::find($u);
->>>>>>> 9832bf9a82d6e886e5ee7251af7b915ab56442d9
             if($uId->administrateur==true){
                 $isAdmin=true;
             }
