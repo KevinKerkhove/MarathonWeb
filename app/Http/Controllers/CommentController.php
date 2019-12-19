@@ -29,16 +29,18 @@ class CommentController extends Controller
         $commentaire= new Comment;
         $user = Auth::user();
 
-        $commentaire->serie_id = $request->idSerie;
-        $commentaire->user_id = 1;
-        $commentaire->content = $request->contenu;
-        $commentaire->note = $request->note;
-        if (isset($request->validated) && $request->validated == "on")
-        $commentaire->validated = 1;
-        else
-        $commentaire->validated = 0;
+        if($user!=null){
+            $commentaire->serie_id = $request->idSerie;
+            $commentaire->user_id = $user->id;
+            $commentaire->content = $request->contenu;
+            $commentaire->note = $request->note;
+            if(isset($request->validated) && $request->validated == "on")
+                $commentaire->validated = 1;
+            else
+                $commentaire->validated = 0;
 
-        $commentaire->save();
+            $commentaire->save();
+        }
 
         return redirect('/serie/'.$commentaire->serie_id);
     }

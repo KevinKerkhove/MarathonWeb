@@ -33,6 +33,7 @@ class SerieController extends Controller{
         $serie=Serie::find($id);
         $genres=$serie->genres;
         $commentaires=$serie->comments;
+        $commentaires=$commentaires->sortBy('created_at');
         $episodes=$serie->episodes;
         $saisons=Episode::select('saison')->where('serie_id',$id)->groupBy('saison')->get();
 
@@ -47,6 +48,6 @@ class SerieController extends Controller{
             }
         }
 
-        return view('serie.show',['serie'=>$serie,'action'=>$action,'episodes'=>$episodes,'commentaires'=>$commentaires,'genres'=>$genres,'saisons'=>$saisons,'isAdmin'=>$isAdmin]);
+        return view('serie.show',['serie'=>$serie,'action'=>$action,'episodes'=>$episodes,'commentaires'=>$commentaires,'genres'=>$genres,'saisons'=>$saisons,'isAdmin'=>$isAdmin,'utilisateur'=>$utilisateur]);
     }
 }
