@@ -6,18 +6,32 @@
 
 
 <h1> les séries</h1>
-    <body>
+<div class="filtre">
     @if(!empty($series))
-        @foreach($series as $serie)
-            <div>
-                <a href="{{route('serie.show',$serie->id)}}"><img src="http://172.31.146.100/~dut19_groupe16{{$serie->urlImage}}"></a>
-                <p>{{$serie->nom}}</p>
-            </div>
+        <h3>Filtrer par genre</h3>
+        <form action="{{route('serie.index')}}" method=""get>
+            <select name="requete">
+                <option value="All"
+                        @if($requete == "All")selected @endif></option>
+                @foreach($genres as $genre)
+                    <option values="{{$genre}}" @if($requete==$genre)selected @endif>{{$genre}}</option>
+                    @endforeach
+            </select>
+            <input type="submit" class="btn btn-darl" value="OK">
 
+        </form>
 
-        @endforeach
-    @else
+        <div class="La liste de toutes les séries">
+            @foreach($series as $serie)
+                <div>
+                    <a href="{{route('serie.show',$serie->id)}}"><img src="{{url($serie->urlImage)}}"></a>
+                    <p>{{$serie->nom}}</p>
+                </div>
+            @endforeach
+
+        </div>
+    @elseif(empty($serie))
         <h3>aucun jeux</h3>
     @endif
-
+</div>
 @endsection

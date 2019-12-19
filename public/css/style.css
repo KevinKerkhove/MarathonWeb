@@ -31,7 +31,7 @@ html{
 #logo_container {
     height: 45px;
     width: 100px;
-    background-image: url("/img/logo/logo.png");
+    background-image: url("../img/logo/logo.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -40,7 +40,7 @@ html{
     position: relative;
     height:100vh;
     width: 100%;
-    background-image: url("/img/background/robot.png");
+    background-image: url("../img/background/robot.png");
     background-position: center;
     background-size: cover;
 }
@@ -59,7 +59,7 @@ html{
     color: white;
     text-transform: uppercase;
     font-size: 48px;
-    font-weight: ;
+    font-weight: 500;
 }
 
 #titre_slogan{
@@ -190,7 +190,7 @@ html{
     min-height:100vh;
     display: flex;
     justify-content: center;
-    background-image: url("/img/background/black.png");
+    background-image: url("../img/background/black.png");
 }
 #container_content{
     padding-top: 15vh;
@@ -313,6 +313,10 @@ html{
     color: white;
 }
 
+
+.filtre{
+    margin-top: 100px;
+}
 
 
 
