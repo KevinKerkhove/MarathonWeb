@@ -2,16 +2,19 @@
 
 @section('content')
 
-    <div>
-        <img src="{[url($user->avatar)}}">
-    </div>
 
-    <div>
-        {{$user->name}}
-        <br>
-        <br>
+
+    <div class="container_user">
+        <div class="photodeprofil">
+            <img src="{[url($user->avatar)}}">
+        </div>
+        <div class="nomdelapersonne">
+            <span>{{$user->name}}</span>
+        </div>
+
+        di
         Ses commmentaires :
-        <br>
+
         @foreach($comments as $comment)
             @if($comment->user_id==$user->id)
                 <ul>

@@ -107,6 +107,9 @@ input:checked + label{
     text-decoration: underline;
 }
 
+.serie_synopsis_text{
+    font-size: 18px;
+}
 .serie_mid_infos_synopsis{
     width: 34%;
 }
@@ -371,4 +374,11 @@ hr.serie_info{
     height: auto;
     background: #000;
 ;
+}
+
+
+.nomdelapersonne{
+    font-size: 60px;
+    font-weight: 800;
+    text-align: right;
 }
