@@ -51,27 +51,21 @@ class CommentController extends Controller
         return view('comment.edit', ['commentaire' => $commentaire]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $id,  $v)
     {
         $commentaire = Comment::find($id);
-
-        $commentaire->validated = $request->validated;
-        if (isset($request->validated) && $request->validated == "on")
-            $commentaire->validated = 1;
-        else
-            $commentaire->validated = 0;
+        $commentaire->validated = $v;
         $commentaire->save();
 
-        return redirect('/serie/');
+        return back();
     }
 
     public function destroy(Request $request, $id)
     {
         $commentaire = Comment::find($id);
 
-        if ($request->delete == 'valide') {
-            $commentaire->delete();
-        }
-        return redirect()->route('comment.index');
+        $commentaire->delete();
+
+        return back();
     }
 }

@@ -3,6 +3,10 @@
 @section('content')
 
     <div>
+        <img src="{[url($user->avatar)}}">
+    </div>
+
+    <div>
         {{$user->name}}
         <br>
         <br>

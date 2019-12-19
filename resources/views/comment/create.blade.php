@@ -15,7 +15,6 @@
     @endif
 
     <form action="{{route('comment.store')}}" method="POST">
-        {!! csrf_field() !!}
         <input type="hidden" name="idSerie" value="{{$serie->id}}">
         <div class="text-center" style="margin-top: 2rem">
             <h3>Création d'un commentaire</h3>

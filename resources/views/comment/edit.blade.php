@@ -12,6 +12,7 @@
     @endif
 
     <form action="{{route('comment.update',$commentaire->id)}}" method="POST">
+        {!! csrf_field() !!}
         @csrf
         @method('PUT')
         @if($commentaire->validated == 0)
@@ -22,12 +23,9 @@
             <div>
                 <button class="btn btn-success" type="submit" href="{{URL::route('serie.index')}}">Valider le commentaire</button>
             </div>
+        @else
+
         @endif
-        <h3>Suppression du commentaire</h3>
-        <hr class="mt-2 mb-2">
-        <div>
-            <button class="btn btn-success" type="submit" href="{{URL::route('serie.index')}}">Supprimer le commentaire</button>
-        </div>
     </form>
 
 @endsection

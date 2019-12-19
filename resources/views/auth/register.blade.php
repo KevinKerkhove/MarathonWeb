@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+    <div id="container_hr">
+        <div id="container_scroll">
+            <hr id="hrscroll">
+            <span id="txt_scroll">scroll down</span>
+        </div>
+        <hr id="hr1">
+        <hr id="hr2">
+        <hr id="hr3">
+        <hr id="hr4">
+    </div>
     <div id="container_form">
         <div id="content_form">
                     <form method="POST" action="{{ route('register') }}" id="form_login">

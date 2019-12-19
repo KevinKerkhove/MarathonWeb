@@ -33,7 +33,9 @@ Route::post('/comment', 'CommentController@store')->name('comment.store');
 
 Route::get('/comment/edit/{id}', 'CommentController@edit')->name('comment.edit');
 
-Route::get('/comment/update/{id}', 'CommentController@update')->name('comment.update');
+Route::get('/comment/update/{id}/{validated}', 'CommentController@update')->name('comment.update');
+
+Route::get('/comment/destroy/{id}', 'CommentController@destroy')->name('comment.destroy');
 
 Route::get('/comment/create/{id}', 'CommentController@create')->name('comment.create');
 
