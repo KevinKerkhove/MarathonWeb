@@ -1,0 +1,322 @@
+/* Ici, votre style sera écrit */
+body{
+    background-color: #0d0e1f;
+}
+*{
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1{
+    font-size: 40px ;
+}
+header{
+    z-index: 500;
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0d0e1f;
+}
+
+#container_header {
+    height: 100%;
+    width: 73%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
+}
+
+.logo{
+    height: auto;
+    width: 100px;
+}
+
+#logo_container {
+    height: 45px;
+    width: 100px;
+    background-image: url("/img/logo/logo.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#first_page{
+    position: relative;
+    height:100vh;
+    width: 100%;
+    background-color: #1b1e21;
+}
+
+#container_hr {
+    position: absolute;
+    top: 0;
+    position: relative;
+    margin: auto;
+    height: 100%;
+    width: 73%;
+}
+
+#container_scroll{
+    position: absolute;
+    bottom: -10px;
+    left: 25%;
+    transform: rotate(-90deg);
+    display: flex;
+    align-items: center;
+    transform-origin: left;
+}
+
+#hrscroll{
+    width: 20vh;
+    height: 2px;
+    background-color:white;
+    border: none;
+}
+
+#txt_scroll{
+    color: white;
+    padding-bottom: 2px;
+    padding-left: 10px;
+}
+
+#hr1{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height:100vh;
+    width: 1px;
+    background-color:#707070;
+    opacity: 0.22;
+    border: none;
+}
+
+#hr2{
+    position: absolute;
+    top: 0;
+    left: 66%;
+    height:100vh;
+    width: 1px;
+    background-color:#707070;
+    opacity: 0.22;
+    border: none;
+}
+
+#hr3{
+    position: absolute;
+    top: 0;
+    left: 83%;
+    height:100vh;
+    width: 1px;
+    background-color:#707070;
+    opacity: 0.22;
+    border: none;
+}
+
+#hr4{
+    position: absolute;
+    top: 0;
+    left: 100%;
+    height:100vh;
+    width: 1px;
+    background-color:#707070;
+    opacity: 0.22;
+    border: none;
+}
+
+.liens{
+    width: 68%;
+    height:100%;
+    display: flex;
+}
+
+.container_liens{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.lien_menu{
+    color: white;
+    text-decoration: none;
+    text-align:right;
+
+}
+
+#barre_de_recherche{
+    color: white;
+    width: 50%;
+    background-color: inherit;
+    border: none;
+    border-bottom: solid 1px white;
+    text-align: right;
+    transition: 0.2s all ease;
+    padding: 0 5px 1px;
+}
+
+#barre_de_recherche:hover{
+    width: 60%;
+}
+
+.serie_nom_serie{
+    font-size: 50px;
+    font-weight: 700;
+    color: #FFF;
+    z-index: 20;
+}
+
+#barre_de_recherche:focus{
+    width: 60%;
+}
+
+#ok {
+    display: none;
+}
+
+.container{
+    width: 73%;
+    margin: 0 auto;
+}
+
+
+.serie_show{
+    padding-top: 180px;
+    color: white;
+
+}
+
+.serie_img_affiche{
+    width: 34%;
+}
+
+.serie_top_infos{
+
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.serie_infos_name{
+    width: 51%;
+
+    display: flex;
+    align-items: center;
+
+}
+
+.serie_top_infos_name{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+}
+
+.serie_checkbox{
+
+    width: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
+.serie_btn_vue{
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    margin-left: 10px;
+}
+
+input[type='checkbox']{
+    position: absolute;
+    left: -9999px;
+}
+input:checked + label{
+    background-color: red;
+}
+
+.carre_rose{
+    position: absolute;
+    width: 50px;
+    height: 70px;
+    background-color: deeppink;
+    z-index: 10;
+    left : -10px
+}
+
+.serie_mid_infos{
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.carre_rose_mid{
+    position: absolute;
+    width: 15px;
+    height: 30px;
+    background-color: deeppink;
+    z-index: 10;
+    left : -5px
+}
+
+.serie_mid_infos_name{
+    position: relative;
+}
+
+.serie_synopsis_titre{
+    z-index: 20;
+    position: relative;
+    font-size: 25px;
+    font-weight: 700;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.serie_mid_infos_synopsis{
+    width: 34%;
+}
+
+.serie_mid_infos_avis{
+    width: 51%;
+}
+
+
+.serie_mid_notes{
+    margin: 10px 0 ;
+    font-size: 12px;
+}
+
+
+.note > span{
+    font-weight: 700;
+}
+
+
+.serie_form_commentaire{
+    width: 49%;
+    background-color: red;
+}
+
+.textarea_serie_commentaire{
+    resize: none;
+    width: 100%;
+}
+
+.btn_saison{
+    width: 100px;
+    text-align: center;
+    height: 33px;
+    border:2px solid white
+
+}
