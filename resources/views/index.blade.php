@@ -31,7 +31,7 @@ use App\Serie;
                     <div class="content_division">
                         @foreach($series4View as $serie4View)
                             <div class="item_division">
-                                <a href="{{route('serie.show',$serie4View->id)}}"><img src="{{url($serie4View->urlImage)}}"></a>
+                                <a href="{{route('serie.show',$serie4View->id)}}"><img src="http://172.31.146.100/~dut19_groupe16{{$serie4View->urlImage}}"></a>
                                 <span>{{$serie4View->nom}}</span>
                             </div>
                         @endforeach
@@ -44,13 +44,20 @@ use App\Serie;
                     <div class="content_division">
                         @foreach($series4Here as $serie4Here)
                             <div class="item_division">
-                                <a href="{{route('serie.show',$serie4Here->id)}}"><img src="{{url($serie4Here->urlImage)}}"></a>
+                                <a href="{{route('serie.show',$serie4Here->id)}}"><img src="http://172.31.146.100/~dut19_groupe16{{$serie4Here->urlImage}}"></a>
                                 <span>{{$serie4Here->nom}}</span>
                             </div>
                         @endforeach
                     </div>
                 </div>
-
+                @foreach($genres as $genre)
+                    <div>{{$genre['nom']}}</div>
+                    @foreach($genre->series as $s)
+                        <a href="{{route('serie.show',$s->id)}}"><img src="http://172.31.146.100/~dut19_groupe16{{$s->urlImage}}"></a>
+                            <p></br>{{$s->nom}}</br>{!!$s->resume!!}</p></br>
+                    @endforeach
+                @endforeach
+            </div>
             <div id="comu">
                 @foreach($fiveComments as $fiveComment)
                     <div class="item_division">
