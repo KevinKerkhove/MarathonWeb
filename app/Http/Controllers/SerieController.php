@@ -14,9 +14,17 @@ use Illuminate\Support\Facades\Auth;
 class SerieController extends Controller{
 
 
-    public function index(){
-        $series=Serie::all();
-        return view('serie.index',['series'=>$series]);
+    public function index(Request $request){
+        $requete=$request->query('gre','All');
+        if($requete!='All'){
+            $series=Serie::where('genres.nom',$requete)->rightJoin('genre_serie','serie_id','=','genre_serie.serie_id')->get();
+        }
+        else{
+            $series=Serie::all();
+        }
+        $genres=Genre::distinct('nom')->pluck('nom');
+
+        return view('serie.index',['series'=>$series,'requete'=>$requete,'genres'=>$genres]);
 
     }
 
