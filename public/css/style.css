@@ -6,6 +6,10 @@ html{
     margin: 0;
     font-family: 'Montserrat', sans-serif;
 }
+
+html::-webkit-scrollbar{
+    display: none;
+}
 #header{
     z-index: 500;
     position: fixed;
