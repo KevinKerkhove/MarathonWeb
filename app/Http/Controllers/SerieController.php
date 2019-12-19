@@ -26,16 +26,22 @@ class SerieController extends Controller{
         $genres=$serie->genres;
         $commentaires=$serie->comments;
         $episodes=$serie->episodes;
+        $saisons=Episode::select('saison')->where('serie_id',$id)->groupBy('saison')->get();
 
         $isAdmin=false;
         $utilisateur = Auth::user();
         if($utilisateur!=null) {
+<<<<<<< HEAD
             $uId=User::find($utilisateur->id);
+=======
+            $u=$utilisateur->id;
+            $uId=User::find($u);
+>>>>>>> 9832bf9a82d6e886e5ee7251af7b915ab56442d9
             if($uId->administrateur==true){
                 $isAdmin=true;
             }
         }
 
-        return view('serie.show',['serie'=>$serie,'action'=>$action,'episodes'=>$episodes,'commentaires'=>$commentaires,'genres'=>$genres,'isAdmin'=>$isAdmin]);
+        return view('serie.show',['serie'=>$serie,'action'=>$action,'episodes'=>$episodes,'commentaires'=>$commentaires,'genres'=>$genres,'saisons'=>$saisons,'isAdmin'=>$isAdmin]);
     }
 }
