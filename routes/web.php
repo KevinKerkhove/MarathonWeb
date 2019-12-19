@@ -21,7 +21,13 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/comment/create/{id}', 'CommentController@create')->name('comment.create');
+Route::resource('serie','SerieController');
+
+Route::resource('episode','EpisodeController');
+
+Route::get('/', 'MainController@index')->name('home');
+
+Route::get('/home', 'MainController@index')->name('home');
 
 Route::post('/comment', 'CommentController@store')->name('comment.store');
 
@@ -29,16 +35,12 @@ Route::get('/comment/edit/{id}', 'CommentController@edit')->name('comment.edit')
 
 Route::get('/comment/update/{id}', 'CommentController@update')->name('comment.update');
 
-Route::get('/', 'MainController@index')->name('home');
-Route::get('/series','SerieController@index')->name('serie.index');
+Route::get('/comment/create/{id}', 'CommentController@create')->name('comment.create');
+
 Route::get('/episodes','EpisodeController@show')->name('episode.show');
+
 Route::get('/user','UserController@index')->name('user.index');
 
-Route::resource('serie','SerieController');
-Route::resource('episode','EpisodeController');
+Route::get('/serie','SerieController@index')->name('serie.index');
 
-//Route::resource('comment', 'CommentController');
-
-Route::get('/', 'MainController@index')->name('home');
-
-Route::get('/series','SerieController@index')->name('serie.index');
+Route::get('/deconnexion','UserController@deconnexion')->name('logout');
