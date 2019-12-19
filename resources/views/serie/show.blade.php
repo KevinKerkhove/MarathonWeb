@@ -2,9 +2,6 @@
 
 @section('content')
 
-
-
-
 <html>
     <body>
         <div>
@@ -57,6 +54,12 @@
                         <p><strong>Commentaires: </strong></p>
                         <p>Utilisateur: {{$commentaire->id}}</p>
                         <p>{{$commentaire->content}}</p>
+                        <p>Note : {{$commentaire->note}}</p>
+                        <p>Date de mise en ligne : {{$commentaire->created_at}}</p>
+                        <p>{{$commentaire->validated}}</p>
+                        <div style="text-align:center;">
+                            <a href="{{route('comment.edit',$commentaire->id)}}">Administration du commentaire</a>
+                        </div>
                     @endif
                 @endforeach
             </div>
@@ -66,6 +69,9 @@
                     <p><strong>Commentaires: </strong></p>
                     <p>Utilisateur: {{$commentaire->id}}</p>
                     <p>{{$commentaire->content}}</p>
+                    <p>{{$commentaire->note}}</p>
+                    <p>{{$commentaire->created_at}}</p>
+                    <p>{{$commentaire->validated}}</p>
                 @endforeach
             </div>
         @endif
@@ -73,7 +79,7 @@
 
 
         <div style="text-align:center;">
-            <h4><a href="{{route('comment.create',$serie->id)}}" method="POST">Ajouter un commentaire</a></h4>
+            <h4><a href="{{route('comment.create',$serie->id)}}">Ajouter un commentaire</a></h4>
         </div>
 
     </body>

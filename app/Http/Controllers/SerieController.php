@@ -30,9 +30,8 @@ class SerieController extends Controller{
         $isAdmin=false;
         $utilisateur = Auth::user();
         if($utilisateur!=null) {
-            $u=$utilisateur->id;
-            $uId=User::find($u);
-            if($uId->administrateur==1){
+            $uId=User::find($utilisateur->id);
+            if($uId->administrateur==true){
                 $isAdmin=true;
             }
         }
@@ -40,5 +39,3 @@ class SerieController extends Controller{
         return view('serie.show',['serie'=>$serie,'action'=>$action,'episodes'=>$episodes,'commentaires'=>$commentaires,'genres'=>$genres,'isAdmin'=>$isAdmin]);
     }
 }
-
-
