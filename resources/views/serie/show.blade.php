@@ -49,28 +49,18 @@
         <!--Les saisons et épisode-->
 
 
-        <div id="Liste-Saison">
+        <div>
             @foreach($saisons as $saison)
-                <button onclick="opena(event, 'Saison {{$saison}}')">Saison {{$saison->saison}}</button>
+                <button>Saison {{$saison->saison}}</button>
+                @foreach($episodes as $episode)
+                    @if($saison->saison==$episode->saison)
+                        <li >
+                            <a href="{{route('episode.show',$episode->id)}}">Episode {{$episode->numero}} {{$episode->nom}}</a>
+                        </li>
+                    @endif
+                @endforeach
             @endforeach
-        </div>
-        <div id="saison">
-            @foreach($saisons as $saison)
-                <div id="saison{{$saison}}" class="initFerme">
-                    @foreach($episodes as $episode)
-                        @if($episode->saison == $saison->saison)
-                            <div>
-                                <p>
-                                    @if($episode->urlImage)
-                                        <img src="{{url($episode->urlImage)}}">
-                                    @endif
-                                    <p>Episode {{$episode->numero}}: {{$episode->nom}}</p>
-                                </p>
-                            </div>
-                        @endif
-                    @endforeach
-                </div>
-            @endforeach
+
         </div>
 
         <!--Les commentaires-->
