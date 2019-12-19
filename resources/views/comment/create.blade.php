@@ -2,6 +2,8 @@
 
 @section('content')
 
+    <h3>Ajouter un commentaire à la série {{$serie->nom}}</h3>
+
     @if ($errors->any())
         <div>
             <ul>
@@ -11,27 +13,20 @@
             </ul>
         </div>
     @endif
-    {{--
-         formulaire de saisie d'un jeu
-         la fonction 'route' utilise un nom de route
-         'csrf_field' ajoute un champ caché qui permet de vérifier
-           que le formulaire vient du serveur.
-      --}}
 
-    <form action="{{route('comment.store',$id)}}" method="POST">
+    <form action="{{route('comment.store')}}" method="POST">
         {!! csrf_field() !!}
+        <input type="hidden" name="idSerie" value="{{$serie->id}}">
         <div class="text-center" style="margin-top: 2rem">
             <h3>Création d'un commentaire</h3>
             <hr class="mt-2 mb-2">
         </div>
         <div>
-            {{-- le nom --}}
             <label for="content"><strong>Contenu :</strong></label>
             <input type="text" id="content" name="contenu"
                    value="{{ old('content') }}">
         </div>
         <div>
-            {{-- l'age min --}}
             <label for="note"><strong>Note :</strong></label>
             <input type="float" id="note" name="note"
                    value="{{ old('note') }}">

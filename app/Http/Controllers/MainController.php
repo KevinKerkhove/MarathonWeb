@@ -9,8 +9,10 @@ use App\Genre;
 class MainController extends Controller
 {
     public function index() {
-        $series4=Serie::orderBy('note','DESC')->limit(4)->get();
+        $series4View=Serie::orderBy('note','DESC')->limit(4)->get();
+        $series4Here=Serie::orderBy('created_at','DESC')->limit(4)->get();
+        $FiveComments=Comment:orderBy()->limit(5)->get()
         $genres=Genre::all();
-        return view("index",['series4'=>$series4,'genres'=>$genres]);
+        return view("index",['series4View'=>$series4View,'series4Here'=>$series4Here,'genres'=>$genres]);
     }
 }
